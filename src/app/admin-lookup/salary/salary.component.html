@@ -1,0 +1,38 @@
+<div class="admin-header">
+  <div class="title-section">
+    <h1>Salary Dashboard</h1>
+    <p>Manage salary details of faculty members</p>
+  </div>
+</div>
+
+<div class="salary-box">
+  <label>Set Salary per Hour: </label>
+  ₹<input type="number" [(ngModel)]="salaryPerHour" placeholder="e.g. 500" />
+  <button (click)="saveSalary()">Save</button>
+</div>
+
+<h2 class="faculty-title">Faculty Members</h2>
+
+<div *ngFor="let faculty of facultyList" class="faculty-card">
+  <img [src]="faculty.image" alt="{{faculty.name}}" class="faculty-img" />
+  <div class="faculty-details">
+    <h3>{{ faculty.name }}</h3>
+    <p><strong>Subjects:</strong> {{ faculty.subjects.join(', ') }}</p>
+    <p><strong>Total Hours:</strong> {{ faculty.totalHours }}</p>
+    <p><strong>Estimated Salary:</strong> ₹{{ faculty.totalHours * salaryPerHour }}</p>
+<p *ngIf="faculty.appraisal"><strong>Appraisal:</strong> ₹{{ faculty.appraisal }}</p>
+<p><strong>Total Payable:</strong> ₹{{ (faculty.totalHours * salaryPerHour) + faculty.appraisal }}</p>
+
+
+    <button
+  class="paid-button"
+  [disabled]="faculty.paid"
+  [ngClass]="{ 'paid': faculty.paid }"
+  (click)="markAsPaid(faculty)"
+>
+  {{ faculty.paid ? 'Paid' : 'Mark as Paid' }}
+</button>
+
+  </div>
+</div>
+

@@ -1,0 +1,126 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap');
+
+:host {
+  font-family: 'Inter', sans-serif;
+  /* background-color: #f5f7fb; */
+  color: #1b2232;
+  min-height: 100vh;
+  padding: 2rem;
+}
+
+/* Header */
+.admin-header {
+  background: #1b2232;
+  color: white;
+  padding: 1.5rem 2rem;
+  border-radius: 12px;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+  margin-bottom: 2rem;
+}
+
+.title-section h1 {
+  margin: 0;
+  font-size: 1.8rem;
+}
+
+.title-section p {
+  margin: 0.5rem 0 0;
+  font-size: 0.95rem;
+  color: #cbd5e1;
+}
+
+/* Salary Box */
+.salary-box {
+  background-color: #ffffff;
+  border: 1px solid #d1d5db;
+  padding: 1.2rem;
+  margin-bottom: 2rem;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  box-shadow: 0 1px 6px rgba(0,0,0,0.05);
+}
+
+.salary-box input {
+  width: 100px;
+  padding: 0.4rem;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+}
+
+.salary-box button {
+  padding: 0.5rem 1rem;
+  background-color: #1b2232;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: 0.2s ease;
+}
+
+.salary-box button:hover {
+  background-color: #111727;
+}
+
+/* Faculty Cards */
+.faculty-title {
+  font-size: 1.4rem;
+  margin-bottom: 1rem;
+  color: #1b2232;
+}
+
+.faculty-card {
+  display: flex;
+  align-items: center;
+  padding: 1.2rem;
+  border: 1px solid #e5e7eb;
+  margin-bottom: 1.5rem;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+  background: white;
+  gap: 1.5rem;
+}
+
+.faculty-img {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  object-fit: cover;
+  flex-shrink: 0;
+}
+
+.faculty-details h3 {
+  margin: 0 0 0.4rem;
+  font-size: 1.2rem;
+}
+
+.faculty-details p {
+  margin: 0.25rem 0;
+  font-size: 0.95rem;
+  color: #374151;
+}
+
+.paid-button {
+  margin-top: 0.8rem;
+  padding: 0.4rem 1rem;
+  background-color: #10b981;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: 0.2s ease-in-out;
+}
+
+.paid-button:hover {
+  background-color: #059669;
+}
+
+.paid-button.paid {
+  background-color: #9ca3af; /* Gray */
+  cursor: default;
+}
+
+.faculty-card p {
+  margin: 0.3rem 0;
+}

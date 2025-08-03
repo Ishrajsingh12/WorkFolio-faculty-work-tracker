@@ -1,0 +1,279 @@
+/* Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Hover effects for clickable elements */
+.card {
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+}
+
+.card:focus-visible {
+  outline: 2px solid #3b82f6;
+  outline-offset: 2px;
+}
+
+.benefit-list li {
+  transition: all 0.3s ease;
+  padding: 5px;
+  border-radius: 4px;
+}
+
+.benefit-list li:hover {
+  background-color: rgba(59, 130, 246, 0.05);
+  padding-left: 15px;
+}
+
+.nav-right a {
+  transition: all 0.3s ease;
+  padding: 5px 10px;
+  border-radius: 4px;
+}
+
+.nav-right a:hover {
+  background-color: rgba(59, 130, 246, 0.05);
+}
+
+.btn-primary {
+  transition: all 0.3s ease;
+}
+
+.btn-primary:hover {
+  background: linear-gradient(to right, #2563eb, #3b82f6);
+  box-shadow: 0 4px 6px rgba(59, 130, 246, 0.2);
+}
+
+.btn-primary:focus-visible {
+  outline: 2px solid #3b82f6;
+  outline-offset: 2px;
+}
+
+body {
+  font-family: 'Segoe UI', sans-serif;
+  color: #1e293b;
+  background-color: #f8fafc;
+  line-height: 1.6;
+}
+
+/* Navbar */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 2rem;
+  background-color: white;
+  box-shadow: 0 1px 4px rgba(0,0,0,0.05);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+.nav-left {
+  display: flex;
+  align-items: center;
+}
+
+.logo {
+  font-size: 1.5rem;
+  margin-right: 0.5rem;
+}
+
+.brand {
+  font-weight: bold;
+  color: #3b82f6;
+  font-size: 1.1rem;
+}
+
+.nav-right a {
+  margin-right: 1rem;
+  text-decoration: none;
+  color: #1e293b;
+  font-weight: 500;
+}
+
+/* Buttons */
+.btn-primary {
+  background: linear-gradient(to right, #3b82f6, #60a5fa);
+  color: white;
+  padding: 0.6rem 1.2rem;
+  border: none;
+  border-radius: 0.4rem;
+  cursor: pointer;
+  font-weight: 600;
+}
+
+.btn-secondary {
+  background: white;
+  border: 1px solid #cbd5e1;
+  padding: 0.6rem 1.2rem;
+  border-radius: 0.4rem;
+  cursor: pointer;
+  font-weight: 500;
+  margin-left: 1rem;
+}
+
+/* Hero Section */
+.hero {
+  text-align: center;
+  padding: 4rem 2rem;
+  background-color: #f9fafb;
+}
+
+.hero h1 {
+  font-size: 2.5rem;
+  font-weight: bold;
+}
+
+.hero .highlight {
+  color: #3b82f6;
+}
+
+.hero p {
+  max-width: 700px;
+  margin: 1rem auto;
+  font-size: 1.1rem;
+  color: #475569;
+}
+
+.hero-buttons {
+  margin-top: 1.5rem;
+}
+
+/* Features Section */
+.features {
+  text-align: center;
+  padding: 4rem 2rem;
+  background-color: #f1f5f9;
+}
+
+.features h2 {
+  font-size: 2rem;
+  font-weight: bold;
+  margin-bottom: 0.5rem;
+}
+
+.feature-cards {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1.5rem;
+  margin-top: 2rem;
+}
+
+.card {
+  background-color: white;
+  border-radius: 0.5rem;
+  padding: 1.5rem;
+  width: 260px;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+  text-align: center;
+}
+
+.card .icon {
+  font-size: 2rem;
+  margin-bottom: 0.5rem;
+}
+
+/* Benefits Section */
+.benefits {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  padding: 4rem 2rem;
+  gap: 2rem;
+}
+
+.benefit-list {
+  flex: 1 1 350px;
+}
+
+.benefit-list h2 {
+  font-size: 1.8rem;
+  margin-bottom: 1rem;
+}
+
+.benefit-list ul {
+  list-style: none;
+  margin-bottom: 1.5rem;
+}
+
+.benefit-list li {
+  margin-bottom: 0.5rem;
+  font-size: 1rem;
+}
+
+.benefit-stats {
+  flex: 1 1 300px;
+  background: linear-gradient(to right, #3b82f6, #60a5fa);
+  color: white;
+  padding: 2rem;
+  border-radius: 1rem;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.benefit-stats h1 {
+  font-size: 3rem;
+}
+
+.benefit-stats p {
+  font-size: 1.2rem;
+  margin: 0.5rem 0;
+}
+
+/* CTA Section */
+.cta {
+  text-align: center;
+  padding: 4rem 2rem;
+}
+
+.cta h2 {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+}
+
+/* Footer */
+.footer {
+  text-align: center;
+  padding: 1rem;
+  background-color: #f1f5f9;
+  color: #64748b;
+  font-size: 0.9rem;
+}
+
+.btn-outline {
+  background: transparent;
+  color: #3b82f6;
+  border: 1.5px solid #3b82f6;
+  padding: 0.6rem 1.2rem;
+  border-radius: 0.4rem;
+  cursor: pointer;
+  font-weight: 500;
+  margin-left: 1rem;
+  transition: background 0.2s ease;
+}
+
+.btn-outline {
+  transition: all 0.3s ease;
+}
+
+.btn-outline:hover {
+  background: #3b82f6;
+  color: white;
+  box-shadow: 0 4px 6px rgba(59, 130, 246, 0.2);
+}
+
+.btn-outline:focus-visible {
+  outline: 2px solid #3b82f6;
+  outline-offset: 2px;
+}

@@ -1,0 +1,91 @@
+.member-container {
+  padding: 2rem;
+  background-color: #f5f7fb;
+  font-family: 'Inter', sans-serif;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+}
+
+.member-card {
+  display: flex;
+  background: white;
+  border-radius: 16px;
+  padding: 2rem;
+  max-width: 900px;
+  width: 100%;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+  gap: 2rem;
+}
+
+.member-img {
+  width: 160px;
+  height: 160px;
+  border-radius: 50%;
+  object-fit: cover;
+  flex-shrink: 0;
+}
+
+.member-details {
+  flex: 1;
+}
+
+.member-details h2 {
+  margin: 0;
+  font-size: 1.8rem;
+  color: #1b2232;
+}
+
+.member-details p {
+  margin: 0.4rem 0;
+  font-size: 1rem;
+  color: #374151;
+}
+
+/* Review section */
+.review-section {
+  margin-top: 1.5rem;
+}
+
+.review-section textarea {
+  width: 100%;
+  min-height: 80px;
+  border: 1px solid #d1d5db;
+  border-radius: 8px;
+  padding: 0.8rem;
+  margin-top: 0.5rem;
+  font-family: inherit;
+  resize: vertical;
+}
+
+.review-section button {
+  margin-top: 0.7rem;
+  padding: 0.5rem 1rem;
+  background-color: #1b2232;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+/* Appraisal section */
+.appraisal-section {
+  margin-top: 1.5rem;
+}
+
+.appraisal-section input {
+  width: 150px;
+  padding: 0.5rem;
+  margin-right: 1rem;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+}
+
+.appraisal-section button {
+  padding: 0.5rem 1rem;
+  background-color: #10b981;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+}

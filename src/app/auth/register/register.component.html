@@ -1,0 +1,54 @@
+<div class="back-button-container">
+  <button class="back-button" (click)="goBack()">
+    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M19 12H5"></path>
+      <path d="M12 19l-7-7 7-7"></path>
+    </svg>
+    Back
+  </button>
+</div>
+
+<div class="auth-container">
+  <h2>Create Your Workfolio Account</h2>
+  <form [formGroup]="registerForm" (ngSubmit)="onRegister()">
+    <div class="profile-image-container">
+      <div class="profile-image-preview" [style.backgroundImage]="profileImagePreview ? 'url(' + profileImagePreview + ')' : 'none'" (click)="fileInput.click()">
+        <span *ngIf="!profileImagePreview" class="upload-icon">
+          <svg width="32" height="32" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <circle cx="12" cy="12" r="10" stroke="#3b82f6" stroke-width="1.5" stroke-opacity="0.5" fill="none"/>
+            <path d="M8 12h8" stroke="#3b82f6" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="M12 8v8" stroke="#3b82f6" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+          <div class="upload-text">Add Photo</div>
+        </span>
+      </div>
+      <label for="profile-image-upload" class="upload-label" (click)="fileInput.click()">Upload Profile Image</label>
+      <input type="file" #fileInput id="profile-image-upload" (change)="onProfileImageSelected($event)" accept="image/*" />
+    </div>
+    
+    <label>First Name</label>
+    <input type="text" formControlName="fname" />
+
+    <label>Last Name</label>
+    <input type="text" formControlName="lname" />
+
+    <label>University/Institution</label>
+    <input type="text" formControlName="university" />
+
+    <label>Department</label>
+    <input type="text" formControlName="department" />
+
+    <label>Email</label>
+    <input type="email" formControlName="email" />
+
+    <label>Password</label>
+    <input type="password" formControlName="password" />
+
+    <label>Confirm Password</label>
+    <input type="password" formControlName="confirmPassword" />
+
+    <button type="submit">Register</button>
+    <div *ngIf="errorMessage" class="error">{{ errorMessage }}</div>
+
+  </form>
+</div>

@@ -1,0 +1,27 @@
+<div *ngIf="faculty" class="member-container">
+  <div class="member-card">
+    <img [src]="faculty.image" alt="{{faculty.name}}" class="member-img" />
+
+    <div class="member-details">
+      <h2>{{ faculty.name }}</h2>
+      <p><strong>Subjects:</strong> {{ faculty.subjects.join(', ') }}</p>
+      <p><strong>Total Hours Worked:</strong> {{ faculty.totalHours }}</p>
+
+      <div class="review-section">
+        <label for="review"><strong>Write Review:</strong></label>
+        <textarea id="review" [(ngModel)]="reviewText" placeholder="Enter feedback or comments..."></textarea>
+        <button (click)="submitReview()">Submit</button>
+      </div>
+
+      <div class="appraisal-section">
+        <label for="appraisal"><strong>Appraisal (₹):</strong></label>
+        <input type="number" id="appraisal" [(ngModel)]="appraisalAmount" placeholder="e.g. 1000" />
+        <button (click)="saveAppraisal()">Save</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div *ngIf="!faculty">
+  <p>Loading faculty data...</p>
+</div>

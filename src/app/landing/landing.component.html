@@ -1,0 +1,89 @@
+<!-- Navbar -->
+<nav class="navbar">
+  <div class="nav-left">
+    <span class="logo">🎓</span>
+    <span class="brand">WorkFolio</span>
+  </div>
+  <div class="nav-right">
+    <!-- <a (click)="navigateToLogin()" style="cursor: pointer;">Login</a>
+    <a (click)="navigateToRegister()" style="cursor: pointer;">Register</a> -->
+    <a (click)="navigateToAdminLogin()" class="btn-outline" style="cursor: pointer;">Admin Login</a>
+    <button class="btn-primary" (click)="navigateToDashboard()">Get Started</button>
+  </div>
+</nav>
+
+<!-- Hero Section -->
+<section class="hero">
+  <h1>Track Your Academic <span class="highlight">Workload</span></h1>
+  <p>
+    Streamline your faculty work tracking with intelligent insights. Monitor lectures, research, meetings,
+    and more while getting AI-powered recommendations to optimize your productivity.
+  </p>
+  <div class="hero-buttons">
+    <button class="btn-primary" (click)="navigateToRegister()">Start Tracking Free</button>
+    <!-- <button class="btn-secondary" (click)="navigateToLogin()">Login</button>
+    <button class="btn-outline" (click)="navigateToAdminLogin()">Admin Login</button> -->
+  </div>
+</section>
+
+<!-- Features Section -->
+<section class="features">
+  <h2>Everything You Need</h2>
+  <p>Comprehensive tools designed for academic professionals</p>
+  <div class="feature-cards">
+    <div class="card" (click)="navigateToFeature('timeTracking')" style="cursor: pointer;">
+      <div class="icon">⏱️</div>
+      <h3>Time Tracking</h3>
+      <p>Log lectures, practicals, meetings, and research hours effortlessly</p>
+    </div>
+    <div class="card" (click)="navigateToFeature('analytics')" style="cursor: pointer;">
+      <div class="icon">📊</div>
+      <h3>Weekly Analytics</h3>
+      <p>Visualize your workload distribution and track productivity trends</p>
+    </div>
+    <div class="card" (click)="navigateToFeature('insights')" style="cursor: pointer;">
+      <div class="icon">🧠</div>
+      <h3>AI Insights</h3>
+      <p>Get personalized recommendations to optimize your academic workflow</p>
+    </div>
+    <div class="card" (click)="navigateToFeature('subjectManagement')" style="cursor: pointer;">
+      <div class="icon">👥</div>
+      <h3>Subject Management</h3>
+      <p>Organize tasks by subject and work type for better oversight</p>
+    </div>
+  </div>
+</section>
+
+<!-- Benefits Section -->
+<section class="benefits">
+  <div class="benefit-list">
+    <h2>Why Faculty Love Our Tracker</h2>
+    <ul>
+      <li (click)="navigateToLogTask()" style="cursor: pointer;">✅ Save 2+ hours weekly on administrative tasks</li>
+      <li (click)="navigateToDashboard()" style="cursor: pointer;">✅ Get insights into your work-life balance</li>
+      <li (click)="navigateToAnalytics()" style="cursor: pointer;">✅ Track research vs teaching time allocation</li>
+      <li (click)="navigateToFeature('insights')" style="cursor: pointer;">✅ Optimize meeting schedules with AI recommendations</li>
+      <li (click)="navigateToFeature('subjectManagement')" style="cursor: pointer;">✅ Generate reports for performance reviews</li>
+    </ul>
+    <button class="btn-primary" (click)="navigateToDashboard()">Start Your Free Trial</button>
+    <button class="btn-outline" (click)="navigateToAdminLogin()">Admin Login</button>
+  </div>
+  <div class="benefit-stats">
+    <h1>40+</h1>
+    <p>Hours saved monthly</p>
+    <small>Average time saved by faculty members using our tracking system</small>
+  </div>
+</section>
+
+<!-- Call to Action -->
+<section class="cta">
+  <h2>Ready to Optimize Your Academic Workflow?</h2>
+  <p>Join hundreds of faculty members who are already tracking smarter and working better.</p>
+  <button class="btn-primary" (click)="navigateToDashboard()">Get Started Today</button>
+  <button class="btn-outline" (click)="navigateToAdminLogin()">Admin Login</button>
+</section>
+
+<!-- Footer -->
+<footer class="footer">
+  Built for academic professionals • Track smarter, work better
+</footer>

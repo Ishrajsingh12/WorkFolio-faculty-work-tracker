@@ -1,0 +1,144 @@
+<div class="analytics-page">
+  <div class="back-button-container">
+    <button class="back-button" (click)="goBack()">
+      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M19 12H5"></path>
+        <path d="M12 19l-7-7 7-7"></path>
+      </svg>
+      Back
+    </button>
+  </div>
+  <div class="analytics-header">
+    <h1>Analytics Dashboard</h1>
+    <p>Track your academic progress and workload distribution</p>
+  </div>
+
+  <div class="analytics-container">
+    <div class="analytics-card">
+      <h3>Total Tasks</h3>
+      <p>{{ totalTasks }}</p>
+    </div>
+    <div class="analytics-card">
+      <h3>Total Hours</h3>
+      <p>{{ totalHours.toFixed(1) }}h</p>
+    </div>
+    <div class="analytics-card">
+      <h3>Active Subjects</h3>
+      <p>{{ activeSubjects }}</p>
+    </div>
+  </div>
+
+  <div class="progress-section">
+    <h2>Weekly Progress</h2>
+    <div class="progress-container">
+      <div class="progress-bar-container">
+        <div class="progress-bar"
+             [style.width.%]="weeklyProgress"
+             [style.background-color]="getProgressColor()">
+        </div>
+      </div>
+      <div class="progress-stats">
+        <p>{{ totalHours.toFixed(1) }}h of {{ weeklyGoal }}h</p>
+        <p>{{ weeklyProgress.toFixed(0) }}% Complete</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="charts-container">
+    <div class="chart-section">
+      <h2>Work Type Distribution</h2>
+      <div class="chart-container" *ngIf="workTypeLabels.length > 0">
+        <div class="chart-bars">
+          <div class="chart-bar" *ngFor="let label of workTypeLabels; let i = index"
+               [style.height.%]="(workTypeData[i] / totalHours) * 100"
+               [style.background-color]="i === 0 ? '#3b82f6' : '#60a5fa'">
+            <span class="bar-value">{{ workTypeData[i].toFixed(1) }}h</span>
+          </div>
+        </div>
+        <div class="chart-labels">
+          <div class="chart-label" *ngFor="let label of workTypeLabels">{{ label }}</div>
+        </div>
+      </div>
+      <div class="empty-chart" *ngIf="workTypeLabels.length === 0">
+        <p>No work type data available yet</p>
+      </div>
+    </div>
+
+    <div class="chart-section">
+      <h2>Subject Distribution</h2>
+      <div class="chart-container" *ngIf="subjectLabels.length > 0">
+        <div class="chart-bars">
+          <div class="chart-bar" *ngFor="let label of subjectLabels; let i = index"
+               [style.height.%]="(subjectData[i] / totalHours) * 100"
+               [style.background-color]="'hsl(' + (200 + i * 30) + ', 70%, 60%)'">
+            <span class="bar-value">{{ subjectData[i].toFixed(1) }}h</span>
+          </div>
+        </div>
+        <div class="chart-labels">
+          <div class="chart-label" *ngFor="let label of subjectLabels">{{ label }}</div>
+        </div>
+      </div>
+      <div class="empty-chart" *ngIf="subjectLabels.length === 0">
+        <p>No subject data available yet</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="recent-activity">
+    <h2>Recent Activity</h2>
+    <div class="activity-list" *ngIf="recentTasks.length > 0">
+      <div class="activity-item" *ngFor="let task of recentTasks">
+        <div class="activity-icon" [ngClass]="task.workType.toLowerCase()">
+          <svg *ngIf="task.workType === 'Lecture'" width="16" height="16" fill="none" viewBox="0 0 24 24">
+            <path d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"
+                  stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+          <svg *ngIf="task.workType === 'Practical'" width="16" height="16" fill="none" viewBox="0 0 24 24">
+            <path d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z"
+                  stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </div>
+        <div class="activity-content">
+          <div class="activity-header">
+            <h3>{{ task.subject }}</h3>
+            <span class="activity-hours">{{ task.hours }}h</span>
+          </div>
+          <div class="activity-meta">
+            <span class="activity-type">{{ task.workType }}</span>
+            <span class="activity-date">{{ task.date | date: 'mediumDate' }}</span>
+          </div>
+          <p class="activity-description" *ngIf="task.description">{{ task.description }}</p>
+        </div>
+      </div>
+    </div>
+    <div class="empty-activity" *ngIf="recentTasks.length === 0">
+      <p>No recent activity to display</p>
+    </div>
+  </div>
+
+  <div class="analytics-table" *ngIf="subjects.length > 0">
+    <h2>📊 Subject Analytics</h2>
+    <table>
+      <thead>
+        <tr>
+          <th>Subject Name</th>
+          <th>Hours Studied</th>
+          <th>Contribution %</th>
+          <th>Tasks Logged</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let subject of subjects">
+          <td>{{ subject.name }}</td>
+          <td>{{ subject.hours }}</td>
+          <td>{{ ((subject.hours / totalHours) * 100) | number: '1.0-1' }}%</td>
+          <td>{{ subject.taskCount }}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div *ngIf="subjects.length === 0" class="empty-message">
+    <p>No subjects added yet. Add subjects from the Dashboard to see analytics here.</p>
+  </div>
+</div>

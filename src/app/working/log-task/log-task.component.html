@@ -1,0 +1,108 @@
+<div class="back-button-container">
+  <button class="back-button" (click)="goBack()">
+    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M19 12H5"></path>
+      <path d="M12 19l-7-7 7-7"></path>
+    </svg>
+    Back
+  </button>
+</div>
+
+<div class="form-container">
+  <h2>➕ Log New Task</h2>
+  <div class="form-grid">
+    <div>
+      <label>📖 Subject</label>
+      <input [(ngModel)]="task.subject" placeholder="e.g., Computer Science 101" />
+    </div>
+    <div>
+      <label>Work Type</label>
+      <select [(ngModel)]="task.workType">
+        <option value="" disabled>Select work type</option>
+        <option value="Lecture">Lecture</option>
+        <option value="Practical">Practical</option>
+      </select>
+    </div>
+    <div>
+      <label>⏱ Hours Spent</label>
+      <input type="number" [(ngModel)]="task.hours" min="0" />
+    </div>
+    <div>
+      <label>Date</label>
+      <input type="date" [(ngModel)]="task.date" />
+    </div>
+  </div>
+  <div>
+    <label>Description (Optional)</label>
+    <textarea [(ngModel)]="task.description" placeholder="Additional notes about this task..."></textarea>
+  </div>
+  <button (click)="addTask()">➕ Add Task</button>
+</div>
+
+<!-- Summary Section -->
+<div class="summary">
+  <div class="card">
+    <h3>This Week's Total</h3>
+    <p><strong>{{ totalHours }}h</strong></p>
+    <p>{{ tasks.length }} tasks logged</p>
+    <progress [value]="totalHours" max="40"></progress>
+    <p>Target: 5h per week</p>
+  </div>
+
+  <div class="card">
+    <h4>🎯 By Work Type</h4>
+    <div *ngFor="let type of objectKeys(workTypeTotals)">
+      <span class="tag">{{ type }}</span>: {{ workTypeTotals[type] }}h
+    </div>
+  </div>
+
+  <div class="card">
+    <h4>📈 By Subject</h4>
+    <div *ngFor="let subj of objectKeys(subjectTotals)">
+      <label>{{ subj }}</label>
+      <progress [value]="subjectTotals[subj]" max="40"></progress> {{ subjectTotals[subj] }}h
+    </div>
+  </div>
+</div>
+
+<!-- Filters Section -->
+<div class="filters">
+  <h3>🔎 Filters</h3>
+  <input placeholder="Search tasks..." [(ngModel)]="filter.search" />
+
+  <select [(ngModel)]="filter.subject">
+    <option value="">All subjects</option>
+    <option *ngFor="let subj of objectKeys(subjectTotals)">{{ subj }}</option>
+  </select>
+
+  <select [(ngModel)]="filter.workType">
+    <option value="">All types</option>
+    <option value="Lecture">Lecture</option>
+    <option value="Practical">Practical</option>
+  </select>
+
+  <input type="date" [(ngModel)]="filter.fromDate" />
+  <input type="date" [(ngModel)]="filter.toDate" />
+</div>
+
+<!-- Task Log Table -->
+<table class="log-table">
+  <thead>
+    <tr>
+      <th>Subject</th>
+      <th>Work Type</th>
+      <th>Hours</th>
+      <th>Date</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let task of tasks">
+      <td>{{ task.subject }}</td>
+      <td><span class="tag">{{ task.workType }}</span></td>
+      <td>{{ task.hours }}h</td>
+      <td>{{ task.date | date: 'mediumDate' }}</td>
+      <td>{{ task.description || '-' }}</td>
+    </tr>
+  </tbody>
+</table>

@@ -1,0 +1,42 @@
+[
+  {
+    "id": 1,
+    "name": "Dr. Aditi Mehra",
+    "subjects": ["Artificial Intelligence", "Machine Learning"],
+    "totalHours": 120,
+    "image": "https://randomuser.me/api/portraits/women/44.jpg",
+    "paid": false
+  },
+  {
+    "id": 2,
+    "name": "Prof. Rajat Sharma",
+    "subjects": ["Data Structures", "Algorithms"],
+    "totalHours": 98,
+    "image": "https://randomuser.me/api/portraits/men/45.jpg",
+    "paid": false
+  },
+  {
+    "id": 3,
+    "name": "Dr. Meenal Joshi",
+    "subjects": ["Database Systems", "Data Warehousing"],
+    "totalHours": 134,
+    "image": "https://randomuser.me/api/portraits/women/47.jpg",
+    "paid": false
+  },
+  {
+    "id": 4,
+    "name": "Prof. Arvind Rao",
+    "subjects": ["Operating Systems", "Computer Networks"],
+    "totalHours": 110,
+    "image": "https://randomuser.me/api/portraits/men/48.jpg",
+    "paid": false
+  },
+  {
+    "id": 5,
+    "name": "Dr. Neha Iyer",
+    "subjects": ["Statistics", "Linear Algebra"],
+    "totalHours": 87,
+    "image": "https://randomuser.me/api/portraits/women/49.jpg",
+    "paid": false
+  }
+]

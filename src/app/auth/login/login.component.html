@@ -1,0 +1,28 @@
+<div class="back-button-container">
+  <button class="back-button" (click)="goBack()">
+    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M19 12H5"></path>
+      <path d="M12 19l-7-7 7-7"></path>
+    </svg>
+    Back
+  </button>
+</div>
+
+<div class="auth-container">
+  <h2>Login to Workfolio</h2>
+  <form [formGroup]="loginForm" (ngSubmit)="onLogin()">
+    <label>Email</label>
+    <input type="email" formControlName="email" placeholder="Enter email" />
+
+    <label>Password</label>
+    <input type="password" formControlName="password" placeholder="Enter password" />
+
+    <button type="submit">Login</button>
+  </form>
+<div *ngIf="errorMessage" class="error">{{ errorMessage }}</div>
+
+  <div class="auth-links">
+    <a (click)="forgotPassword()">Forgot Password?</a>
+    <p>Don't have an account? <a (click)="goToRegister()">Sign Up</a></p>
+  </div>
+</div>

@@ -1,0 +1,76 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap');
+
+:host {
+  font-family: 'Inter', sans-serif;
+  /* background-color: #f5f7fb; */
+  color: #1b2232;
+  min-height: 100vh;
+  padding: 2rem;
+  overflow-x: hidden;
+}
+
+/* Header */
+.admin-header {
+  margin-top: 1rem; /* Added spacing from top to avoid clipping */
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: #1b2232; /* Your color */
+  color: white;
+  padding: 1.5rem 2rem;
+  border-radius: 12px;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+}
+
+.title-section h1 {
+  margin: 0;
+  font-size: 1.8rem;
+}
+
+.title-section p {
+  margin: 0.5rem 0 0;
+  font-size: 0.95rem;
+  color: #cbd5e1;
+}
+
+/* Action Section */
+.section-title {
+  margin-top: 3rem;
+  margin-bottom: 1.2rem;
+  font-size: 1.5rem;
+  color: #1b2232;
+}
+
+.action-cards {
+  display: flex;
+  gap: 1.5rem;
+  flex-wrap: wrap;
+}
+
+.action-card {
+  flex: 1 1 240px;
+  background-color: #ffffff;
+  padding: 1.5rem;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+  border: 1px solid #e5e7eb;
+}
+
+.action-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 4px 16px rgba(0,0,0,0.12);
+  border-color: #cbd5e1;
+}
+
+.action-card h3 {
+  margin-bottom: 0.5rem;
+  font-size: 1.2rem;
+  color: #1d4ed8;
+}
+
+.action-card p {
+  color: #374151;
+  font-size: 0.95rem;
+}

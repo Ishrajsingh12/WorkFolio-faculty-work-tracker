@@ -1,0 +1,19 @@
+<div class="admin-header">
+  <div class="title-section">
+    <h1>Faculty Reports</h1>
+    <p>Review individual faculty reports and performance</p>
+  </div>
+</div>
+
+<h2 class="faculty-title">Faculty Members</h2>
+
+<div *ngFor="let faculty of facultyList" 
+     class="faculty-card clickable"
+     [routerLink]="['/admin/member', faculty.id]">
+  <img [src]="faculty.image" alt="{{faculty.name}}" class="faculty-img" />
+  <div class="faculty-details">
+    <h3>{{ faculty.name }}</h3>
+    <p><strong>Subjects:</strong> {{ faculty.subjects.join(', ') }}</p>
+    <p><strong>Total Hours:</strong> {{ faculty.totalHours }}</p>
+  </div>
+</div>
